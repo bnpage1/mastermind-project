@@ -677,7 +677,7 @@ def intro():
 
 
 
-def endscreen(buildingsLost):
+def endscreen(buildingsLost, name):
 
 
 
@@ -710,7 +710,7 @@ def endscreen(buildingsLost):
             if event.type == pygame_gui.UI_BUTTON_PRESSED:
                 if event.ui_element == e_button:
                     is_running = False
-                    thegame()
+                    thegame(name)
                 if event.ui_element == h_button:
                     is_running = False
             manager.process_events(event)
@@ -794,7 +794,7 @@ def leaderboard(name,abl):
                 posx += 270
 
             newdd.remove(currentii)
-            print()
+
         window_surface.blit(font.render(("Leader board"), True, (0, 182, 0)),
                             (30, 20))
         manager.draw_ui(window_surface)
@@ -1016,7 +1016,7 @@ def thegame(name):
 
 
     if not exit:
-        exit = endscreen(abl)
+        exit = endscreen(abl, name)
     if  exit == True:
         return True
     else:
